@@ -1,0 +1,31 @@
+.half-page {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  &__viewport {
+    min-height: 100%;
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.half-page__viewport-content {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-layout {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0;
+}

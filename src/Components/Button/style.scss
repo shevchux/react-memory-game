@@ -1,0 +1,22 @@
+.button {
+  background: #fff;
+  padding: 8px 16px;
+  border: 0;
+  margin: 0;
+  border-radius: 2px;
+  font-weight: 600;
+  opacity: 0.85;
+  color: #1c7430;
+  outline: none;
+  transition: 0.3s opacity ease-out;
+  cursor: pointer;
+}
+
+.button:hover {
+  opacity: 1;
+}
+
+.button:active {
+  padding-top: 9px;
+  padding-bottom: 7px;
+}

@@ -1,0 +1,102 @@
+.card {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.05s linear;
+
+  &__front, &__back {
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+    transition: transform 0.3s ease-out;
+    backface-visibility: hidden;
+    position: absolute;
+  }
+
+  &__front {
+    background: #868686;
+    transform: rotateY(0deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial;
+    color: #717171;
+    font-size: 24px;
+    text-shadow: 0 1px 0 #9f9f9f;
+
+    &::before {
+      content: '{...}';
+    }
+  }
+
+  &__back {
+    background: #fff;
+    transform: rotateY(180deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &::after {
+      content: '';
+      display: block;
+      background-image: url('./cards.png');
+      height: 72px;
+      width: 72px;
+      background-size: 100%;
+    }
+  }
+
+  &_opened &__front, &_played &__front {
+    transform: rotateY(180deg);
+  }
+
+  &_opened &__back, &_played &__back {
+    transform: rotateY(0deg);
+    backface-visibility: visible;
+  }
+
+  @for $i from 0 through 17 {
+    &_value#{$i} &__back::after {
+      background-position: 0px $i*-72px;
+    }
+  }
+
+  &_opened, &_played {
+    pointer-events: none;
+  }
+
+  &_played {
+    transform: scale(1.5);
+    opacity: 0;
+    transition: all 0.5s ease-out;
+    transition-delay: 0.1s;
+  }
+
+  @keyframes error-shake {
+    10%, 90% {
+      transform: translate3d(-1px, 0, 0);
+    }
+    
+    20%, 80% {
+      transform: translate3d(2px, 0, 0);
+    }
+  
+    30%, 50%, 70% {
+      transform: translate3d(-3px, 0, 0);
+    }
+  
+    40%, 60% {
+      transform: translate3d(2px, 0, 0);
+    }
+  }
+
+  &_error {
+    animation: error-shake 0.25s;
+    transform: translate3d(0, 0, 0);
+    animation-duration: 0.5s;
+  }
+}

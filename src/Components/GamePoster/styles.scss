@@ -1,0 +1,18 @@
+.poster {
+  width: 500px;
+
+  &__image {
+    height: 215px;
+    width: 500px;
+    background-image: url('./startGame.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  &__title {
+    font-weight: 600;
+    color: #fff;
+    text-align: center;
+    font-size: 28px;
+  }
+}
